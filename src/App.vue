@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import './index.css'</script>
+</script>
 
 <template>
-    <div class="flex-center">
-        <h1 class="text-3xl font-bold underline">
-            Hello world!
-        </h1>
-    </div>
+    <n-loading-bar-provider>
+        <n-message-provider>
+            <n-notification-provider>
+                <n-dialog-provider>
+                    <landing></landing>
+                </n-dialog-provider>
+            </n-notification-provider>
+        </n-message-provider>
+    </n-loading-bar-provider>
 </template>
 
 <style>
