@@ -10,7 +10,7 @@ export default defineConfig({
             reactivityTransform: true
         }),
         Components({
-            dirs: ['src/components', "src/views"],
+            dirs: ['src/**/*'],
             resolvers: [NaiveUiResolver()]
         })
     ]
