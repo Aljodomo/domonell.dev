@@ -5,7 +5,8 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Landing: typeof import('./src/views/Landing.vue')['default']
+    Login: typeof import('./src/views/Login.vue')['default']
+    LoginCard: typeof import('./src/components/LoginCard.vue')['default']
     NCard: typeof import('naive-ui')['NCard']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
     NInput: typeof import('naive-ui')['NInput']
@@ -13,7 +14,6 @@ declare module '@vue/runtime-core' {
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
     NSpace: typeof import('naive-ui')['NSpace']
-    PasswordCard: typeof import('./src/components/PasswordCard.vue')['default']
   }
 }
 

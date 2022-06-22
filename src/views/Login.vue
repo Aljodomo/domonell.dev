@@ -1,6 +1,6 @@
 <template>
     <div class="flex-center">
-        <password-card></password-card>
+        <login-card></login-card>
     </div>
 </template>
 
