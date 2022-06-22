@@ -2,8 +2,6 @@
 import {initializeApp} from "firebase/app";
 
 import json from "../firebase-config.json";
-
-console.log(json)
 // Initialize Firebase
 const firebase = initializeApp(json);
 
