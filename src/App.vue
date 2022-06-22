@@ -6,7 +6,7 @@
         <n-message-provider>
             <n-notification-provider>
                 <n-dialog-provider>
-                    <login></login>
+                    <router-view></router-view>
                 </n-dialog-provider>
             </n-notification-provider>
         </n-message-provider>
@@ -14,4 +14,9 @@
 </template>
 
 <style>
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 </style>

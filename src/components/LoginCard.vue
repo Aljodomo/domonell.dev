@@ -4,7 +4,7 @@
             <n-input
                 v-model:value="username"
                 type="text"
-                placeholder="Email"
+                placeholder="Username"
                 :status="validationStatus"
                 @keyup.enter="login"
             />
@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 
 let username = $ref("");
 let password = $ref("");

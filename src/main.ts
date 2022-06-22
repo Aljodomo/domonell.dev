@@ -3,5 +3,8 @@ import App from './App.vue'
 import './index.css'
 
 import "./firebase.ts";
+import {router} from "./router/router";
 
-createApp(App).mount('#app');
+createApp(App)
+    .use(router)
+    .mount('#app');
