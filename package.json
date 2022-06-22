@@ -6,9 +6,11 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "force-update": "npx npm-check-updates -u"
+    "force-update": "npx npm-check-updates -u",
+    "deploy": "firebase deploy --only hosting:homepage-9122a"
   },
   "dependencies": {
+    "firebase": "^9.8.3",
     "vue": "^3.2.37"
   },
   "devDependencies": {
