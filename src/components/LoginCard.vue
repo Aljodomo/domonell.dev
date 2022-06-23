@@ -26,19 +26,21 @@
 
 <script setup lang="ts">
 import {useFirebaseSignIn} from "../composables/use-firebase-signIn";
+import {useRouter} from "vue-router";
 
 let username = $ref("");
 let password = $ref("");
 let validationStatus = $ref("");
 let errorText = $ref("");
 
+const router = useRouter();
+
 function login() {
     validationStatus = "";
 
     useFirebaseSignIn(username, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            errorText = "Login successful"
+        .then(() => {
+            router.push("/");
         })
         .catch((error) => {
             console.log(error)
