@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {useFirebaseSignIn} from "../composables/use-firebase-signIn";
 
 let username = $ref("");
 let password = $ref("");
@@ -34,9 +34,8 @@ let errorText = $ref("");
 
 function login() {
     validationStatus = "";
-    const auth = getAuth();
-    const email = username + "@domonell.dev";
-    signInWithEmailAndPassword(auth, email, password)
+
+    useFirebaseSignIn(username, password)
         .then((userCredential) => {
             const user = userCredential.user;
             errorText = "Login successful"
