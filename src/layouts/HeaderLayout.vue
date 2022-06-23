@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col">
-        <div class="pl-8 p-3 shadow-lg border-b">
+        <div class="pl-8 p-4 border-b">
             <my-header></my-header>
         </div>
         <div class="pl-8 p-4">
