@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
-import {onUnmounted} from "vue";
-import {useAuth} from "./composables/use-auth";
 let route = useRoute();
-
-onUnmounted(() => useAuth().signOut());
 </script>
 
 <template>
