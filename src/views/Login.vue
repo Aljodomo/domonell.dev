@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-center">
+    <div class="flex-center bg-gray-600">
         <login-card id="lc"></login-card>
     </div>
 </template>
