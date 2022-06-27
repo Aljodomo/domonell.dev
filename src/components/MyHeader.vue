@@ -13,11 +13,15 @@
         </n-dropdown>
         <button class="mr-8 font-bold hover:text-orange-500"><a>StackOverflow</a></button>
         <button class="mr-8 font-bold hover:text-orange-500"><a>GitHub</a></button>
+        <button class="mr-8 font-bold hover:text-orange-500" @click="auth.signOut()">SignOut</button>
     </div>
 </template>
 
 <script setup lang="ts">
 import {i18next} from "../i18n";
+import {useAuth} from "../composables/use-auth";
+
+const auth = useAuth();
 
 const languages = [
     {
