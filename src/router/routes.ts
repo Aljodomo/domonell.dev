@@ -18,6 +18,10 @@ const routes = [
             layout: SingleCardLayout
         }
     },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/'
+    }
 ]
 
 export {routes}
