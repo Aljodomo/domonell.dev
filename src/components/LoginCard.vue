@@ -1,10 +1,15 @@
 <template>
-    <n-card title="Login" class="w-fit" hoverable>
+    <n-card class="w-fit rounded-2xl">
         <n-space vertical>
+            <div class="flex items-center">
+                <n-icon size="18" color="gray" :component="ApertureOutline" />
+                <div class="text-md ml-1">Domonell.dev</div>
+            </div>
+            <n-text class="font-bold text-lg">{{ $t("login") }}</n-text>
             <n-input
                 v-model:value="username"
                 type="text"
-                placeholder="Username"
+                :placeholder="$t('username')"
                 :status="validationStatus"
                 @keyup.enter="login"
             />
@@ -12,11 +17,12 @@
                 v-model:value="password"
                 type="password"
                 show-password-on="mousedown"
-                placeholder="Password"
+                :placeholder="$t('password')"
                 :maxlength="20"
                 :status="validationStatus"
                 @keyup.enter="login"
             />
+            <n-button class="bg-blue-500 w-full" type="info" @click="login">{{ $t("sign-in") }}</n-button>
         </n-space>
         <template v-if="errorText" #action>
             {{ errorText }}
@@ -48,6 +54,8 @@ function login() {
             validationStatus = "error";
         });
 }
+
+import {ApertureOutline} from "@vicons/ionicons5";
 
 </script>
 

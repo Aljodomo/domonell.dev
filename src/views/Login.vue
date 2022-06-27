@@ -1,6 +1,6 @@
 <template>
-    <div class="flex-center bg-gray-600">
-        <login-card id="lc"></login-card>
+    <div class="flex-center">
+        <login-card class="shadow-2xl" id="lc"></login-card>
     </div>
 </template>
 

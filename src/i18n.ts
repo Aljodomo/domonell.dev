@@ -9,12 +9,20 @@ i18next
         resources: {
             en: {
                 translation: {
-                    welcome: "Welcome to this site"
+                    welcome: "Welcome to this site",
+                    "login": "Login with your credentials",
+                    "sign-in": "Sign in",
+                    username: "Username",
+                    password: "Password"
                 }
             },
             de: {
                 translation: {
-                    welcome: "Willkommen auf dieser Seite"
+                    welcome: "Willkommen auf dieser Seite",
+                    "login": "Melden sie sich an",
+                    "sign-in": "Anmelden",
+                    username: "Benutzername",
+                    password: "Passwort"
                 }
             }
         }
