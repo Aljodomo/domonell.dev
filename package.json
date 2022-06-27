@@ -12,6 +12,8 @@
   "dependencies": {
     "firebase": "^9.8.3",
     "gsap": "^3.10.4",
+    "i18next": "^21.8.10",
+    "i18next-vue": "^2.0.0-beta.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },
