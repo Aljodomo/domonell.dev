@@ -1,12 +1,33 @@
 <script setup lang="ts">
-import {useRoute} from "vue-router";
-let route = useRoute();
+    import {useRoute} from "vue-router";
+
+    import { GlobalThemeOverrides, darkTheme } from 'naive-ui'
+
+    const themeOverrides: GlobalThemeOverrides = {
+        common: {
+            primaryColor: '#08FDD8',
+        },
+        Button: {
+            heightLarge: "45px",
+            textColor: '#08FDD8',
+            colorHover: '#08FDD8', 
+            textColorHover: "black",
+            colorFocus: '#08FDD8',
+            borderRadiusLarge: "0",
+            border: 'solid 1px #08FDD8',
+        }
+    }
+
+    let route = useRoute();
+
 </script>
 
 <template>
-    <component :is="route.meta.layout">
-        <router-view></router-view>
-    </component>
+    <n-config-provider class="h-full" :theme="darkTheme" :theme-overrides="themeOverrides">
+        <component :is="route.meta.layout">
+            <router-view></router-view>
+        </component>
+    </n-config-provider>
 </template>
 
 <style>

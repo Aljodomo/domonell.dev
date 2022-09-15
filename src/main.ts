@@ -1,6 +1,6 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import './index.css'
+import './index.scss'
 
 import {router} from "./router/router";
 import I18NextVue from "i18next-vue";
