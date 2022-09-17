@@ -9,3 +9,11 @@
 .flex-center {
     @apply h-full flex items-center justify-center
 }
+
+.hightlighted-big-letters {
+    @apply text-p-hightlight text-7xl font-bold tracking-tightest
+}
+
+.fading-text {
+    @apply text-p-fade font-serif italic
+}
