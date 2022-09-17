@@ -1,0 +1,51 @@
+<template>
+    <div class="h-full pl-5 p-5 font-['Arial']">
+        <div class="h-full flex flex-col justify-between  max-w-4xl">
+            <div class="fading-text">
+                <div class="ml-5">#include&lt;stdio.h&gt;</div>
+                <div class="ml-5">void main(void){</div>
+            </div>
+            <div class="ml-10">
+                <div>
+                    <div class="fading-text">printf("</div>
+                    <div class="ml-4">
+                        <div class="hightlighted-big-letters">Ich, ich, ich...</div>
+                    </div>
+                    <div class="fading-text">");</div>
+                </div>
+                <div>
+                    <div class="fading-text">printf("</div>
+                    <div class="ml-5 text-lg text-white">
+                        <p>
+                            Ich bin Software Enwickler und lebe in Berlin. 
+                            Ich genieße es die Möglichkeiten der digitalen Welt zu endecken und zur Anwendung zu bringen.</p>
+                        <br>
+                        <p>
+                            Meine Passion ist es komplexe Welten einfacher zugänglich zu machen. 
+                            Die digitale Welt in der wir uns als Enwickler bewegen hat viel zu bieten,
+                            was jedoch meist aus Unwissenheit ungenutzt bleibt.
+                            Ich sehe das lernen als integralen Bestandteil meiner Arbeit und folge dem Vorsatz etwas lieber richtig als doppelt zu machen.
+                            Ein Problem hat immer eine Lösung auch wenn es nicht die ist, die man gerne hören möchte.
+                        </p>
+                        <br>
+                        <p>
+                            Ich sehe eine gute Kommunkation als das größte Kapital eines Unternehmens.
+                        </p>
+                        <br>
+                        <router-link class="text-p-hightlight" to="/contact">Ich freue mich auf ihre Nachricht.</router-link>
+                    </div>
+                    <div class="fading-text">");</div>
+                </div>
+            </div>
+            <div class="fading-text">
+                <div class="ml-5">}</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+</script>
+
+<style scoped>
+</style>
