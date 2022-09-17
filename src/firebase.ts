@@ -1,7 +1,6 @@
 import {initializeApp} from "firebase/app";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import json from "../firebase-config.json";
-import {useAuth} from "./composables/use-auth";
 
 const firebase = initializeApp(json);
 
@@ -10,17 +9,4 @@ const appCheck = initializeAppCheck(firebase, {
     isTokenAutoRefreshEnabled: true
 });
 
-function authInitialized(): Promise<void> {
-    return new Promise((resolve) => {
-            let isInitialized = false;
-            useAuth().onAuthStateChanged(() => {
-                if (!isInitialized) {
-                    isInitialized = true;
-                    resolve();
-                }
-            });
-        }
-    )
-}
-
-export {firebase, authInitialized};
+export {firebase};
