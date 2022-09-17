@@ -1,5 +1,6 @@
 import Home from "../views/Home.vue"
-import Login from "../views/Login.vue"
+import About from "../views/About.vue"
+import Contact from "../views/Contact.vue"
 import HeaderLayout from "../layouts/HeaderLayout.vue"
 import SingleCardLayout from "../layouts/SingleCardLayout.vue"
 
@@ -12,10 +13,17 @@ const routes = [
         }
     },
     {
-        path: '/login',
-        component: Login,
+        path: '/about',
+        component: About,
         meta: {
-            layout: SingleCardLayout
+            layout: HeaderLayout
+        }
+    },
+    {
+        path: '/contact',
+        component: Contact,
+        meta: {
+            layout: HeaderLayout
         }
     },
     {
