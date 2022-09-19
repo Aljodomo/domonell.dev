@@ -129,12 +129,12 @@ function handleDirectMessage(e: MouseEvent) {
                     subject: formValue.value.subject,
                     message: formValue.value.message
                 }).then(() => {
-                    notification.create({
+                    notification["success"]({
                         title: "Nachricht abgeschickt"
                     })
                 }).catch(() => {
-                    notification.create({
-                        title: "nachricht konnte nicht abgeschickt werden"
+                    notification["error"]({
+                        title: "Nachricht konnte nicht abgeschickt werden"
                     })
                 });
             }
@@ -153,7 +153,7 @@ function handleSendMail(e: MouseEvent) {
         (errors) => {
             const mailTo = `mailto:contact@domonell.dev?subject=${formValue.value.subject}&body=${formValue.value.message}`;
             if (!errors) {
-                window.open(mailTo);
+                console.log(window.open(mailTo));
             }
         },
         (rule) => rule?.key === "subject" || rule?.key === "message"

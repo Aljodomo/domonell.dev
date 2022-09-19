@@ -23,9 +23,11 @@ let route = useRoute();
 
 <template>
     <n-config-provider class="h-full" :theme="darkTheme" :theme-overrides="themeOverrides">
-        <component :is="route.meta.layout">
-            <router-view></router-view>
-        </component>
+        <n-notification-provider placement="bottom-right">
+            <component :is="route.meta.layout">
+                <router-view></router-view>
+            </component>
+        </n-notification-provider>
     </n-config-provider>
 </template>
 
