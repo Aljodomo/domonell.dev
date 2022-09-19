@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { GlobalThemeOverrides, darkTheme } from 'naive-ui'
-import SourceCodeFooter from './components/SourceCodeFooter.vue'
 
 const themeOverrides: GlobalThemeOverrides = {
     common: {
@@ -27,20 +26,8 @@ let route = useRoute();
         <component :is="route.meta.layout">
             <router-view></router-view>
         </component>
-
-        <source-code-footer />
     </n-config-provider>
 </template>
 
 <style>
-body {
-    margin: 0;
-    min-height: 100%;
-    height: 100%;
-}
-
-#app {
-    height: 100%;
-    width: 100%;
-}
 </style>

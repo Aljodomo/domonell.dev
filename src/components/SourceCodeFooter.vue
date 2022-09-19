@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute bottom-5 right-5">
+    <div class="hidden sm:block absolute bottom-5 right-5">
         <n-tooltip>
             <template #trigger>
                 <n-button class="mr-2" text style="font-size: 24px" @click="openNewIssue">
