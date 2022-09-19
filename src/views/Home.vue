@@ -45,6 +45,6 @@ const router = useRouter();
 
 <style scoped>
 .big-letters {
-    @apply text-white font-['Arial'] text-4xl sm:text-6xl lg:text-8xl font-bold tracking-tightest
+    @apply text-white font-['Arial'] text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tightest
 }
 </style>

@@ -19,7 +19,7 @@
 }
 
 .normal-text {
-    @apply sm:text-lg text-white
+    @apply text-base text-white
 }
 
 .res-mlr-5 {
@@ -28,4 +28,8 @@
 
 .res-mlr-10 {
     @apply sm:mr-10 sm:ml-10
+}
+
+.n-button__content {
+    @apply font-mono
 }

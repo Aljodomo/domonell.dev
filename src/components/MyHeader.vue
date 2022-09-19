@@ -117,6 +117,6 @@ function handleClick() {
 }
 
 .nav-button {
-    @apply text-p-gray text-xl hover:text-p-hightlight hover:cursor-pointer;
+    @apply text-p-gray text-base hover:text-p-hightlight hover:cursor-pointer;
 }
 </style>
