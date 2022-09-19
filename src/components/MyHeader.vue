@@ -12,7 +12,7 @@
         <div class="basis-36 flex-shrink-0"></div>
         <div class="flex-1"></div>
         <div class="flex flex-col items-center gap-5 m-10">
-            <router-link v-for="route in routes" class="nav-button" :to="route.key">{{route.label}}</router-link>
+            <router-link v-for="route in routes" class="nav-button" :to="(route.key! as string)">{{route.label}}</router-link>
         </div>
         <div class="flex-1 flex flex-row sm:flex-col justify-end">
             <n-button class="text-p-gray" size="large" quaternary circle @click="openInNewTab(instaUrl)">
@@ -44,15 +44,17 @@
 
 <script setup lang="ts">
 import { LogoGithub as GitHubIcon, LogoInstagram as InstagramIcon, LogoLinkedin as LinkedinIcon, MenuSharp as MenuIcon } from '@vicons/ionicons5';
-import { Component, h, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { NIcon } from 'naive-ui'
+import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption } from 'naive-ui'
 
 const instaUrl = "https://www.instagram.com/25past4/";
 const githubUrl = "https://github.com/Aljodomo";
 const linkedInUrl = "https://www.linkedin.com/in/adomonell/";
 
-const routes = [
+type DropdownMixedOption = DropdownOption | DropdownDividerOption | DropdownGroupOption | DropdownRenderOption;
+
+const routes: DropdownOption[] = [
     {
         label: "Home",
         key: "/"
@@ -76,7 +78,7 @@ const router = useRouter();
 const showDropdownRef = ref(false);
 
 
-const options = routes.concat([
+const options: DropdownMixedOption[] = routes.concat([
     {
         type: "divider"
     },

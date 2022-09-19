@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
     Contact: typeof import('./src/views/Contact.vue')['default']
     HeaderLayout: typeof import('./src/layouts/HeaderLayout.vue')['default']
     Home: typeof import('./src/views/Home.vue')['default']
-    MobileHeader: typeof import('./src/components/MobileHeader.vue')['default']
     MyHeader: typeof import('./src/components/MyHeader.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
