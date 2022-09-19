@@ -21,8 +21,7 @@
                     </div>
                     <div class="fading-text">")</div>
                 </div>
-                <div>
-                    <div class="fading-text mb-2">acceptInput(</div>
+                <div class="mt-5">
                     <n-form class="res-mlr-5" ref="formRef" :model="formValue" :show-label="false" :rules="rules">
                         <n-grid span="2" :x-gap="10" :y-gap="0" cols="1 s:2 m:2 l:2 xl:2 2xl:2"  responsive="screen">
                             <n-form-item-gi required label="Name" span="1" path="name">
@@ -62,7 +61,6 @@
                             </n-form-item-gi>
                         </n-grid>
                     </n-form>
-                    <div class="fading-text">)</div>
                 </div>
             </div>
             <div class="fading-text res-mlr-5">
@@ -74,7 +72,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { FormInst } from 'naive-ui'
+import { FormInst, useNotification } from 'naive-ui'
 import { useFirestore } from '../composables/use-firestore';
 import { addDoc, collection } from '@firebase/firestore';
 
@@ -114,6 +112,8 @@ const rules = {
 
 const db = useFirestore();
 
+const notification = useNotification();
+
 let timeout: number;
 
 function handleDirectMessage(e: MouseEvent) {
@@ -128,6 +128,14 @@ function handleDirectMessage(e: MouseEvent) {
                     email: formValue.value.email,
                     subject: formValue.value.subject,
                     message: formValue.value.message
+                }).then(() => {
+                    notification.create({
+                        title: "Nachricht abgeschickt"
+                    })
+                }).catch(() => {
+                    notification.create({
+                        title: "nachricht konnte nicht abgeschickt werden"
+                    })
                 });
             }
         }
