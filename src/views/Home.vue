@@ -13,8 +13,6 @@
                             <span>H</span>
                             <span>e</span>
                             <span>y</span>
-                            <!-- <span>l</span>
-                            <span>o</span> -->
                             <span>,</span>
                         </div>
                         <div class="mb-1 children_inline-block">
@@ -71,12 +69,10 @@
                     <div class="fading-text">");</div>
                 </div>
                 <div class="mt-5 flex flex-col ani-contact">
-                    <!-- <div class="fading-text">acceptInput(</div> -->
                     <n-button class="res-mlr-5 w-52 self-center sm:self-start" size="large"
                         @click="() => router.push('/contact')">
                         Kontaktieren
                     </n-button>
-                    <!-- <div class="fading-text">)</div> -->
                 </div>
             </div>
             <div class="fading-text">
@@ -88,24 +84,30 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { nextTick, onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
 onMounted(() => {
 
-    const tl = gsap.timeline();
+    nextTick(() => {
+        const tl = gsap.timeline();
 
-    tl
-        .from(".ani-hi > *", {scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.07, duration: 0.7, delay: 0.3})
-        .from(".ani-iam > *", {scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.03, duration: 0.7 }, "-=.4") 
-        .add("st1", "-=0.8")
-        .from(".ani-job-title > *", {scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.07, duration: 0.7}, "-=.55")
-        .from(".ani-name", {x: 200, opacity: 0}, "-=.5")
-        .from(".ani-full-job-title", {y: 50, opacity: 0, duration: 0.8}, "st1")
-        .from(".ani-contact", {y: 50, opacity: 0, duration: 0.8}, "st1+=0.2")
-
+        tl
+            .from(".ani-hi > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.07, duration: 0.7, delay: 0.5 })
+            .from(".ani-iam > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.03, duration: 0.7 }, "-=.4")
+            .add("st1", "-=0.8")
+            .from(".ani-job-title > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.07, duration: 0.7 }, "-=.55")
+            .from(".ani-name", { x: 200, opacity: 0 }, "-=.5")
+            .from(".ani-comma", { rotate: -90, opacity: 0 })
+            .fromTo(".ani-name > *",
+                { scale: 0.99 },
+                { scale: 1, stagger: 0.06, duration: 0.4, ease: "back.out(180)" }
+            )
+            .from(".ani-full-job-title", { y: 50, opacity: 0, duration: 0.8 }, "st1")
+            .from(".ani-contact", { y: 50, opacity: 0, duration: 0.8 }, "st1+=0.2")
+    });
 
 });
 </script>
