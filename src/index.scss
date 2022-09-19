@@ -37,3 +37,7 @@
 .n-dropdown-menu {
     @apply w-40
 }
+
+.children_inline-block > * {
+    @apply inline-block
+}

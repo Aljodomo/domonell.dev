@@ -10,54 +10,19 @@
                     <div class="fading-text">System.out.println("</div>
                     <div class="big-letters sm:ml-5">
                         <div class="mb-1 children_inline-block ani-hi">
-                            <span>H</span>
-                            <span>e</span>
-                            <span>y</span>
-                            <span>,</span>
+                            <span v-for="char in encode('Hey,')" v-html="char"></span>
                         </div>
                         <div class="mb-1 children_inline-block">
                             <span class="children_inline-block ani-iam">
-                                <span>i</span>
-                                <span>c</span>
-                                <span>h</span>
-                                <span>&#160;</span>
-                                <span>b</span>
-                                <span>i</span>
-                                <span>n</span>
-                                <span>&#160;</span>
+                                <span v-for="char in encode('ich bin ')" v-html="char"></span>
                             </span>
                             <span class="text-p-hightlight children_inline-block ani-name">
-                                <span>A</span>
-                                <span>l</span>
-                                <span>j</span>
-                                <span>o</span>
-                                <span>s</span>
-                                <span>c</span>
-                                <span>h</span>
-                                <span>a</span>
+                                <span v-for="char in encode('Aljoscha')" v-html="char"></span>
                             </span>
                             <span class="ani-comma">,</span>
                         </div>
                         <div class="children_inline-block ani-job-title">
-                            <span>S</span>
-                            <span>o</span>
-                            <span>f</span>
-                            <span>t</span>
-                            <span>w</span>
-                            <span>a</span>
-                            <span>r</span>
-                            <span>e</span>
-                            <span>&#160;</span>
-                            <span>E</span>
-                            <span>n</span>
-                            <span>t</span>
-                            <span>w</span>
-                            <span>i</span>
-                            <span>c</span>
-                            <span>k</span>
-                            <span>l</span>
-                            <span>e</span>
-                            <span>r</span>
+                            <span v-for="char in encode('Software Entwickler')" v-html="char"></span>
                         </div>
                     </div>
                     <div class="fading-text">");</div>
@@ -87,6 +52,8 @@
 import { nextTick, onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { useRouter } from 'vue-router';
+import { encode } from "../utils/html-encoder";
+
 const router = useRouter();
 
 onMounted(() => {
@@ -113,11 +80,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-.children_inline-block > * {
-    @apply inline-block
-}
-
 .big-letters {
     @apply text-white font-['Arial'] text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tightest
 }
