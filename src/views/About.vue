@@ -1,21 +1,21 @@
 <template>
-    <div class="h-full pl-5 p-5 font-['Arial']">
-        <div class="h-full flex flex-col justify-between  max-w-4xl">
-            <div class="fading-text">
-                <div class="ml-5">#include&lt;stdio.h&gt;</div>
-                <div class="ml-5">void main(void){</div>
+    <div class="h-full p-5 font-['Arial']">
+        <div class="h-full flex flex-col justify-between max-w-4xl">
+            <div class="res-mlr-5 fading-text">
+                <div>#include&lt;stdio.h&gt;</div>
+                <div>void main(void){</div>
             </div>
-            <div class="ml-10">
+            <div class="res-mlr-10">
                 <div>
                     <div class="fading-text">printf("</div>
-                    <div class="ml-4">
+                    <div class="res-mlr-5">
                         <div class="hightlighted-big-letters">Ich, ich, ich...</div>
                     </div>
                     <div class="fading-text">");</div>
                 </div>
                 <div>
                     <div class="fading-text">printf("</div>
-                    <div class="ml-5 text-lg text-white">
+                    <div class="res-mlr-5 normal-text">
                         <p>
                             Ich bin Software Enwickler und lebe in Berlin. 
                             Ich genieße es die Möglichkeiten der digitalen Welt zu endecken und zur Anwendung zu bringen.</p>
@@ -37,8 +37,8 @@
                     <div class="fading-text">");</div>
                 </div>
             </div>
-            <div class="fading-text">
-                <div class="ml-5">}</div>
+            <div class="fading-text res-mlr-5">
+                <div >}</div>
             </div>
         </div>
     </div>

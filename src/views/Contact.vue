@@ -1,32 +1,30 @@
 <template>
     <div class="h-full pl-5 p-5 font-['Arial']">
         <div class="h-full flex flex-col justify-between max-w-2xl">
-            <div class="fading-text">
-                <div class="ml-5">package main</div>
-                <div class="ml-5">import "fmt"</div>
-                <div class="ml-5">func  main(void){</div>
+            <div class="fading-text sm:ml-5">
+                <div>package main</div>
+                <div>import "fmt"</div>
+                <div>func  main(void){</div>
             </div>
-            <div class="ml-10">
+            <div class="res-mlr-10">
                 <div>
                     <div class="fading-text">fmt.Println("</div>
-                    <div class="ml-4">
+                    <div class="res-mlr-5">
                         <div class="hightlighted-big-letters">Kontakt</div>
                     </div>
                     <div class="fading-text">")</div>
                 </div>
                 <div>
                     <div class="fading-text">fmt.Println("</div>
-                    <div class="ml-5 text-lg text-white">
-                        <p>
-                            Ich bin interessiert an Freiberuflicher Tätigkeit besonders in der Neuentwicklung.
-                        </p>
+                    <div class="res-mlr-5 normal-text">
+                        Ich bin interessiert an Freiberuflicher Tätigkeit besonders in der Neuentwicklung.
                     </div>
                     <div class="fading-text">")</div>
                 </div>
                 <div>
                     <div class="fading-text mb-2">acceptInput(</div>
-                    <n-form class="ml-5" ref="formRef" :model="formValue" :show-label="false" :rules="rules">
-                        <n-grid span="2" :x-gap="10" :y-gap="0" :cols="2">
+                    <n-form class="res-mlr-5" ref="formRef" :model="formValue" :show-label="false" :rules="rules">
+                        <n-grid span="2" :x-gap="10" :y-gap="0" cols="1 s:2 m:2 l:2 xl:2 2xl:2"  responsive="screen">
                             <n-form-item-gi required label="Name" span="1" path="name">
                                 <n-input v-model:value="formValue.name" placeholder="Name" />
                             </n-form-item-gi>
@@ -46,7 +44,7 @@
                                 <n-tooltip>
                                     <template #trigger>
                                         <n-button class="w-full" size="large" @click="handleDirectMessage">
-                                            Nachricht direkt senden
+                                            Direkt senden
                                         </n-button>
                                     </template>
                                     Die Nachricht wird direkt per Instant Messenger zugestellt.
@@ -67,8 +65,8 @@
                     <div class="fading-text">)</div>
                 </div>
             </div>
-            <div class="fading-text">
-                <div class="ml-5">}</div>
+            <div class="fading-text res-mlr-5">
+                <div>}</div>
             </div>
         </div>
     </div>
