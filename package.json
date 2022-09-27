@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build.preview": "npm run build && vite preview",
     "preview": "vite preview",
     "force-update": "npx npm-check-updates -u",
     "deploy": "firebase deploy --only hosting:homepage-9122a",
