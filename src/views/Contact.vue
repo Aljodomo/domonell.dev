@@ -74,7 +74,6 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
 import { FormInst, useNotification } from 'naive-ui'
-import { useFirestore } from '../composables/use-firestore';
 import { addDoc, collection } from '@firebase/firestore';
 import { encode } from "../utils/html-encoder";
 import { gsap } from "gsap";
@@ -113,16 +112,19 @@ const rules = {
     },
 };
 
-const db = useFirestore();
-
 const notification = useNotification();
 
 let timeout: number;
 
-function handleDirectMessage(e: MouseEvent) {
+async function handleDirectMessage(e: MouseEvent) {
+    e.preventDefault();
     clearTimeout(timeout);
 
-    e.preventDefault();
+    const loader = () => import('../composables/use-firestore');
+    const { useFirestore } = await loader();
+
+    const db = useFirestore();
+
     formRef.value?.validate(
         (errors) => {
             if (!errors) {
