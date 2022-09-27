@@ -173,7 +173,7 @@ function handleSendMail(e: MouseEvent) {
 onMounted(() => {
     nextTick(() => {
         gsap.timeline()
-            .from(".ani-contact > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.1, duration: 0.7 })
+            .from(".ani-contact > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.1, duration: 0.7, delay: 0.3 })
             .from(".ani-flyin", { y: 100, opacity: 0, stagger: 0.2 }, "-=1.3")
     });
 })

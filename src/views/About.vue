@@ -56,7 +56,7 @@ import { encode } from "../utils/html-encoder";
 onMounted(() => {
     nextTick(() => {
         gsap.timeline()
-            .from(".ani-ich > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.05, duration: 0.7 })
+            .from(".ani-ich > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.05, duration: 0.7, delay: 0.3 })
             .from(".ani-flyin", { y: 100, opacity: 0, stagger: 0.2 }, "-=1.3")
             .fromTo(".ani-contact-me > *",
                 { scale: 0.99 },
