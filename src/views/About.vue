@@ -19,19 +19,18 @@
                     <div class="fading-text">printf("</div>
                     <div class="res-mlr-5 normal-text">
                         <p class="ani-flyin">
-                            Ich bin Software Enwickler und lebe in Berlin. 
-                            Ich genieße es die Möglichkeiten der digitalen Welt zu endecken und zur Anwendung zu bringen.</p>
+                            Ich bin Software Entwickler und lebe in Berlin. 
+                            Ich genieße es, die Möglichkeiten der digitalen Welt zu entdecken und zur Anwendung zu bringen.</p>
                         <br>
                         <p class="ani-flyin">
-                            Meine Passion ist es komplexe Welten einfacher zugänglich zu machen. 
-                            Die digitale Welt in der wir uns als Enwickler bewegen hat viel zu bieten,
-                            was jedoch meist aus Unwissenheit ungenutzt bleibt.
-                            Ich sehe das lernen als integralen Bestandteil meiner Arbeit und folge dem Vorsatz etwas lieber richtig als doppelt zu machen.
-                            Ein Problem hat immer eine Lösung auch wenn es nicht die ist, die man gerne hören möchte.
+                            Meine Passion ist es, komplexe Welten einfacher zugänglich zu machen. 
+                            Die digitale Welt, in der wir uns als Entwickler bewegen, hat viel zu bieten, was jedoch meist aus Unwissenheit ungenutzt bleibt. 
+                            Ich sehe das Lernen als integralen Bestandteil meiner Arbeit und folge dem Vorsatz, etwas lieber richtig als doppelt zu machen. 
+                            Ein Problem hat immer eine Lösung, auch wenn es nicht die ist, die man gerne hören möchte.
                         </p>
                         <br>
                         <p class="ani-flyin">
-                            Ich sehe eine gute Kommunkation als das größte Kapital eines Unternehmens.
+                            Ich sehe eine gute Kommunikation als das größte Kapital eines Unternehmens.
                         </p>
                         <br>
                         <router-link class="text-p-hightlight ani-flyin inline-block children_inline-block ani-contact-me" to="/contact">

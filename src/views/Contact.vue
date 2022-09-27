@@ -17,7 +17,7 @@
                 <div>
                     <div class="fading-text">fmt.Println("</div>
                     <div class="res-mlr-5 normal-text ani-flyin">
-                        Ich bin interessiert an Freiberuflicher Tätigkeit besonders in der Neuentwicklung.
+                        Ich bin interessiert an freiberuflicher Tätigkeit, besonders in der Neuentwicklung.
                     </div>
                     <div class="fading-text">")</div>
                 </div>
