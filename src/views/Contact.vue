@@ -42,7 +42,7 @@
                             <NFormItemGi class="ani-flyin" span="1">
                                 <NTooltip>
                                     <template #trigger>
-                                        <NButton class="w-full" size="large" @click="handleDirectMessage">
+                                        <NButton class="w-full" :loading="loading" :disabled="disabled" size="large" @click="handleDirectMessage">
                                             Direkt senden
                                         </NButton>
                                     </template>
@@ -116,9 +116,13 @@ const notification = useNotification();
 
 let timeout: number;
 
+const loading = ref(false);
+const disabled = ref(false);
+
 async function handleDirectMessage(e: MouseEvent) {
     e.preventDefault();
     clearTimeout(timeout);
+    loading.value = true;
 
     const loader = () => import('../composables/use-firestore');
     const { useFirestore } = await loader();
@@ -134,12 +138,15 @@ async function handleDirectMessage(e: MouseEvent) {
                     subject: formValue.value.subject,
                     message: formValue.value.message
                 }).then(() => {
+                    loading = false;
                     notification["success"]({
                         title: "Nachricht abgeschickt",
                         duration: 2500,
                         keepAliveOnHover: true
                     });
                 }).catch((e) => {
+                    loading.value = false;
+                    disabled.value = true;
                     console.error(e);
                     notification["error"]({
                         title: "Nachricht konnte nicht abgeschickt werden",
@@ -147,6 +154,8 @@ async function handleDirectMessage(e: MouseEvent) {
                         keepAliveOnHover: true
                     });
                 });
+            } else {
+                loading.value = false;
             }
         }
     );
