@@ -34,10 +34,9 @@
                     <div class="fading-text">");</div>
                 </div>
                 <div class="mt-5 flex flex-col ani-contact">
-                    <NButton class="res-mlr-5 w-52 self-center sm:self-start" size="large"
-                        @click="() => router.push('/contact')">
+                    <router-link class="res-mlr-5 w-52 self-center sm:self-start big-button" to="/contact">
                         Kontaktieren
-                    </NButton>
+                    </router-link>
                 </div>
             </div>
             <div class="fading-text">
@@ -51,11 +50,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted } from 'vue';
 import { gsap } from 'gsap';
-import { useRouter } from 'vue-router';
 import { encode } from "../utils/html-encoder";
-import { NButton } from "naive-ui";
-
-const router = useRouter();
 
 onMounted(() => {
 
@@ -81,6 +76,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.big-button {
+    @apply text-p-hightlight text-base font-mono p-3 border text-center hover:bg-p-hightlight hover:text-black border-p-hightlight transition ease-in-out duration-300
+}
 .big-letters {
     @apply text-white font-['Arial'] text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tightest
 }
