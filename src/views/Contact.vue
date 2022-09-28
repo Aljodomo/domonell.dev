@@ -22,46 +22,46 @@
                     <div class="fading-text">")</div>
                 </div>
                 <div class="mt-5">
-                    <n-form class="res-mlr-5" ref="formRef" :model="formValue" :show-label="false" :rules="rules">
-                        <n-grid span="2" :x-gap="10" :y-gap="0" cols="1 s:2 m:2 l:2 xl:2 2xl:2"  responsive="screen">
-                            <n-form-item-gi class="ani-flyin" required label="Name" span="1" path="name">
-                                <n-input v-model:value="formValue.name" placeholder="Name" />
-                            </n-form-item-gi>
-                            <n-form-item-gi class="ani-flyin" required span="1" path="email">
-                                <n-input v-model:value="formValue.email" placeholder="Email" />
-                            </n-form-item-gi>
-                            <n-form-item-gi class="ani-flyin" required span="2" path="subject">
-                                <n-input v-model:value="formValue.subject" placeholder="Betreff" />
-                            </n-form-item-gi>
-                            <n-form-item-gi class="ani-flyin" required span="2" path="message">
-                                <n-input v-model:value="formValue.message" placeholder="Nachricht" type="textarea"
+                    <NForm class="res-mlr-5" ref="formRef" :model="formValue" :show-label="false" :rules="rules">
+                        <NGrid span="2" :x-gap="10" :y-gap="0" cols="1 s:2 m:2 l:2 xl:2 2xl:2"  responsive="screen">
+                            <NFormItemGi class="ani-flyin" required label="Name" span="1" path="name">
+                                <NInput v-model:value="formValue.name" placeholder="Name" />
+                            </NFormItemGi>
+                            <NFormItemGi class="ani-flyin" required span="1" path="email">
+                                <NInput v-model:value="formValue.email" placeholder="Email" />
+                            </NFormItemGi>
+                            <NFormItemGi class="ani-flyin" required span="2" path="subject">
+                                <NInput v-model:value="formValue.subject" placeholder="Betreff" />
+                            </NFormItemGi>
+                            <NFormItemGi class="ani-flyin" required span="2" path="message">
+                                <NInput v-model:value="formValue.message" placeholder="Nachricht" type="textarea"
                                     :autosize="{
                                         minRows: 5
                                     }" />
-                            </n-form-item-gi><!-- ani-flyin class has to be on this level. I dont know why... -->
-                            <n-form-item-gi class="ani-flyin" span="1">
-                                <n-tooltip>
+                            </NFormItemGi><!-- ani-flyin class has to be on this level. I dont know why... -->
+                            <NFormItemGi class="ani-flyin" span="1">
+                                <NTooltip>
                                     <template #trigger>
-                                        <n-button class="w-full" size="large" @click="handleDirectMessage">
+                                        <NButton class="w-full" size="large" @click="handleDirectMessage">
                                             Direkt senden
-                                        </n-button>
+                                        </NButton>
                                     </template>
                                     Die Nachricht wird direkt per Instant Messenger zugestellt.
-                                </n-tooltip>
-                            </n-form-item-gi>
+                                </NTooltip>
+                            </NFormItemGi>
                             <!-- ani-flyin class has to be on this level. I dont know why... -->
-                            <n-form-item-gi class="ani-flyin" span="1"> 
-                                <n-tooltip>
+                            <NFormItemGi class="ani-flyin" span="1"> 
+                                <NTooltip>
                                     <template #trigger>
-                                        <n-button class="w-full" size="large" @click="handleSendMail">
+                                        <NButton class="w-full" size="large" @click="handleSendMail">
                                             Email senden
-                                        </n-button>
+                                        </NButton>
                                     </template>
                                     Nachricht über den eigenen Mail Client versenden.
-                                </n-tooltip>
-                            </n-form-item-gi>
-                        </n-grid>
-                    </n-form>
+                                </NTooltip>
+                            </NFormItemGi>
+                        </NGrid>
+                    </NForm>
                 </div>
             </div>
             <div class="fading-text res-mlr-5">
@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
-import { FormInst, useNotification } from 'naive-ui'
+import { FormInst, useNotification, NForm, NGrid, NFormItemGi, NTooltip, NButton, NInput } from 'naive-ui'
 import { addDoc, collection } from '@firebase/firestore';
 import { encode } from "../utils/html-encoder";
 import { gsap } from "gsap";

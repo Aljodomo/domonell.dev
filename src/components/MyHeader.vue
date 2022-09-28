@@ -7,49 +7,49 @@
                 :class="{'text-p-hightlight': route.key === currentRoute.path}" class="nav-button" :to="(route.key! as string)">
                 {{route.label}}
             </router-link>
-            <n-dropdown trigger="click" size="large" :options="options" @select="handleSelect">
-                <n-button class="sm:hidden translate-y-[1px]" size="large" text>
+            <NDropdown trigger="click" size="large" :options="options" @select="handleSelect">
+                <NButton class="sm:hidden translate-y-[1px]" size="large" text>
                     <template #icon>
-                        <n-icon>
+                        <NIcon>
                             <menu-icon />
-                        </n-icon>
+                        </NIcon>
                     </template>
-                </n-button>
-            </n-dropdown>
+                </NButton>
+            </NDropdown>
         </div>
         <div class="hidden flex-1 sm:flex flex-row sm:flex-col justify-end">
-            <n-button class="text-p-gray" size="large" quaternary circle @click="openInNewTab(instaUrl)">
+            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(instaUrl)">
                 <template #icon>
-                    <n-icon>
+                    <NIcon>
                         <InstagramIcon />
-                    </n-icon>
+                    </NIcon>
                 </template>
-            </n-button>
-            <n-button class="text-p-gray" size="large" quaternary circle @click="openInNewTab(githubUrl)">
+            </NButton>
+            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(githubUrl)">
                 <template #icon>
-                    <n-icon>
+                    <NIcon>
                         <GitHubIcon />
-                    </n-icon>
+                    </NIcon>
                 </template>
-            </n-button>
-            <n-button class="text-p-gray" size="large" quaternary circle @click="openInNewTab(linkedInUrl)">
+            </NButton>
+            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(linkedInUrl)">
                 <template #icon>
-                    <n-icon>
+                    <NIcon>
                         <LinkedinIcon />
-                    </n-icon>
+                    </NIcon>
                 </template>
-            </n-button>
+            </NButton>
         </div>
         <div class="hidden sm:block basis-36 flex-shrink"></div>
     </div>
-    <source-code-footer />
+    <SourceCodeFooter />
 </template>
 
 <script setup lang="ts">
 import { LogoGithub as GitHubIcon, LogoInstagram as InstagramIcon, LogoLinkedin as LinkedinIcon, MenuSharp as MenuIcon } from '@vicons/ionicons5';
 import { useRoute, useRouter } from 'vue-router';
-import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption } from 'naive-ui'
-import { computed } from 'vue';
+import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption, NButton, NDropdown, NIcon } from 'naive-ui'
+import SourceCodeFooter from './SourceCodeFooter.vue';
 
 const instaUrl = "https://www.instagram.com/25past4/";
 const githubUrl = "https://github.com/Aljodomo";

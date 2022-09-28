@@ -34,10 +34,10 @@
                     <div class="fading-text">");</div>
                 </div>
                 <div class="mt-5 flex flex-col ani-contact">
-                    <n-button class="res-mlr-5 w-52 self-center sm:self-start" size="large"
+                    <NButton class="res-mlr-5 w-52 self-center sm:self-start" size="large"
                         @click="() => router.push('/contact')">
                         Kontaktieren
-                    </n-button>
+                    </NButton>
                 </div>
             </div>
             <div class="fading-text">
@@ -53,6 +53,7 @@ import { nextTick, onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { useRouter } from 'vue-router';
 import { encode } from "../utils/html-encoder";
+import { NButton } from "naive-ui";
 
 const router = useRouter();
 

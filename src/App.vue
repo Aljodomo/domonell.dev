@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { GlobalThemeOverrides, darkTheme } from 'naive-ui'
+import { GlobalThemeOverrides, darkTheme, NConfigProvider, NNotificationProvider } from 'naive-ui'
 
 const themeOverrides: GlobalThemeOverrides = {
     common: {
@@ -17,18 +17,18 @@ const themeOverrides: GlobalThemeOverrides = {
     }
 }
 
-let route = useRoute();
+const route = useRoute();
 
 </script>
 
 <template>
-    <n-config-provider class="h-full" :theme="darkTheme" :theme-overrides="themeOverrides">
-        <n-notification-provider placement="bottom-right">
+    <NConfigProvider class="h-full" :theme="darkTheme" :theme-overrides="themeOverrides">
+        <NNotificationProvider placement="bottom-right">
             <component :is="route.meta.layout">
-                <router-view></router-view>
+                <RouterView></RouterView>
             </component>
-        </n-notification-provider>
-    </n-config-provider>
+        </NNotificationProvider>
+    </NConfigProvider>
 </template>
 
 <style>
