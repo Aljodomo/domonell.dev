@@ -1,6 +1,19 @@
-import {firebase} from "../firebase";
-import {getFirestore} from "firebase/firestore";
+import {getFirebase} from "../firebase";
+import {addDoc, collection, getFirestore} from "firebase/firestore";
+
+interface Message {
+    name: string,
+    email: string,
+    subject: string,
+    message: string,
+}
 
 export function useFirestore() {
-    return getFirestore(firebase)
+    const firestore = getFirestore(getFirebase());
+
+    function addMessage(message: Message) {
+        return addDoc(collection(firestore, "messenges"), message);
+    }
+
+    return { addMessage }
 }

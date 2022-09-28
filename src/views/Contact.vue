@@ -74,7 +74,6 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
 import { FormInst, useNotification, NForm, NGrid, NFormItemGi, NTooltip, NButton, NInput } from 'naive-ui'
-import { addDoc, collection } from '@firebase/firestore';
 import { encode } from "../utils/html-encoder";
 import { gsap } from "gsap";
 
@@ -124,15 +123,13 @@ async function handleDirectMessage(e: MouseEvent) {
     clearTimeout(timeout);
     loading.value = true;
 
-    const loader = () => import('../composables/use-firestore');
-    const { useFirestore } = await loader();
-
-    const db = useFirestore();
+    const {useFirestore} = await import("../composables/use-firestore");
+    const firestore = useFirestore();
 
     formRef.value?.validate(
         (errors) => {
             if (!errors) {
-                addDoc(collection(db, "messenges"), {
+                firestore.addMessage({
                     name: formValue.value.name,
                     email: formValue.value.email,
                     subject: formValue.value.subject,
