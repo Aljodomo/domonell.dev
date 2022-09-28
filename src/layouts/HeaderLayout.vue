@@ -1,10 +1,10 @@
 <template>
-    <div class="flex flex-col sm:flex-row items-stretch h-full bg-green-700">
-        <div class="sm:basis-32">
+    <div class="flex sm:flex-row flex-col items-stretch h-full bg-green-700">
+        <div class="basis-20 sm:basis-32 order-2 sm:order-1">
             <my-header></my-header>
         </div>
 
-        <div class="bg-p-black flex-grow overflow-auto">
+        <div class="bg-p-black flex-grow overflow-auto order-1 sm:order-2 overflow-x-hidden">
             <slot></slot>
         </div>
     </div>

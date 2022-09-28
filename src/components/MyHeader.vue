@@ -1,20 +1,23 @@
 <template>
-    <n-dropdown trigger="click" size="large" :options="options" @select="handleSelect">
-        <n-button class="absolute top-3 right-3 sm:hidden z-50" size="large" quaternary circle>
-            <template #icon>
-                <n-icon>
-                    <menu-icon />
-                </n-icon>
-            </template>
-        </n-button>
-    </n-dropdown>
-    <div class="hidden bg-p-dark-black sm:flex flex-col h-full items-center justify-center">
-        <div class="basis-36 flex-shrink-0"></div>
-        <div class="flex-1"></div>
-        <div class="flex flex-col items-center gap-5 m-10">
-            <router-link v-for="route in routes" class="nav-button" :to="(route.key! as string)">{{route.label}}</router-link>
+    <div class="bg-p-dark-black flex-row flex sm:flex-col h-full items-center justify-around sm:justify-center drop-shadow-2xl">
+        <div class="hidden sm:block basis-36 flex-shrink-0"></div>
+        <div class="hidden sm:block flex-1"></div>
+        <div class="basis-3/4 flex flex-row items-center justify-between text-p-gray sm:basis-0 sm:flex-col sm:gap-5 sm:m-10">
+            <router-link v-for="route in routes" :key="route.key"
+                :class="{'text-p-hightlight': route.key === currentRoute.path}" class="nav-button" :to="(route.key! as string)">
+                {{route.label}}
+            </router-link>
+            <n-dropdown trigger="click" size="large" :options="options" @select="handleSelect">
+                <n-button class="sm:hidden translate-y-[1px]" size="large" text>
+                    <template #icon>
+                        <n-icon>
+                            <menu-icon />
+                        </n-icon>
+                    </template>
+                </n-button>
+            </n-dropdown>
         </div>
-        <div class="flex-1 flex flex-row sm:flex-col justify-end">
+        <div class="hidden flex-1 sm:flex flex-row sm:flex-col justify-end">
             <n-button class="text-p-gray" size="large" quaternary circle @click="openInNewTab(instaUrl)">
                 <template #icon>
                     <n-icon>
@@ -37,16 +40,16 @@
                 </template>
             </n-button>
         </div>
-        <div class="basis-36 flex-shrink"></div>
+        <div class="hidden sm:block basis-36 flex-shrink"></div>
     </div>
     <source-code-footer />
 </template>
 
 <script setup lang="ts">
 import { LogoGithub as GitHubIcon, LogoInstagram as InstagramIcon, LogoLinkedin as LinkedinIcon, MenuSharp as MenuIcon } from '@vicons/ionicons5';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption } from 'naive-ui'
+import { computed } from 'vue';
 
 const instaUrl = "https://www.instagram.com/25past4/";
 const githubUrl = "https://github.com/Aljodomo";
@@ -75,13 +78,7 @@ function openInNewTab(url: string) {
 
 const router = useRouter();
 
-const showDropdownRef = ref(false);
-
-
-const options: DropdownMixedOption[] = routes.concat([
-    {
-        type: "divider"
-    },
+const options: DropdownMixedOption[] = [
     {
         label: 'Instagram',
         key: instaUrl,
@@ -95,7 +92,7 @@ const options: DropdownMixedOption[] = routes.concat([
         key: linkedInUrl,
         
     }
-]);
+];
 
 function handleSelect(key: string) {
     if (key.startsWith("/")) {
@@ -105,9 +102,7 @@ function handleSelect(key: string) {
     }
 }
 
-function handleClick() {
-    showDropdownRef.value = !showDropdownRef.value;
-}
+const currentRoute = useRoute();
 
 </script>
 
@@ -117,6 +112,6 @@ function handleClick() {
 }
 
 .nav-button {
-    @apply text-p-gray text-base hover:text-p-hightlight hover:cursor-pointer;
+    @apply text-base sm:hover:text-p-hightlight hover:cursor-pointer;
 }
 </style>

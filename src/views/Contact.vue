@@ -2,8 +2,8 @@
     <div class="h-full pl-5 p-5 font-['Arial']">
         <div class="h-full flex flex-col justify-between max-w-2xl">
             <div class="fading-text sm:ml-5">
-                <div>package main</div>
-                <div>import "fmt"</div>
+                <div class="hidden sm:block">package main</div>
+                <div class="hidden sm:block">import "fmt"</div>
                 <div>func  main(void){</div>
             </div>
             <div class="res-mlr-10">

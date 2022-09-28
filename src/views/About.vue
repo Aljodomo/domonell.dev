@@ -1,8 +1,8 @@
 <template>
-    <div class="h-full p-5 font-['Arial']">
-        <div class="h-full flex flex-col justify-between max-w-4xl">
+    <div class="h-full p-5 font-['Arial'] flex flex-row items-center">
+        <div class="self-stretch flex flex-col justify-between max-w-4xl">
             <div class="res-mlr-5 fading-text">
-                <div>#include&lt;stdio.h&gt;</div>
+                <div class="hidden sm:block">#include&lt;stdio.h&gt;</div>
                 <div>void main(void){</div>
             </div>
             <div class="res-mlr-10">
@@ -44,6 +44,7 @@
                 <div >}</div>
             </div>
         </div>
+        <!-- <div class="tag-cloud basis-1/2 text-p-hightlight h-full"></div> -->
     </div>
 </template>
 
@@ -51,6 +52,7 @@
 import { nextTick, onMounted } from 'vue';
 import { gsap } from "gsap";
 import { encode } from "../utils/html-encoder";
+// import TagCloud from "TagCloud";
 
 onMounted(() => {
     nextTick(() => {
@@ -62,9 +64,50 @@ onMounted(() => {
                 { scale: 1, stagger: 0.01, duration: 0.2, ease: "back.out(180)" }
             )
     });
+
+
+    // const texts = [
+    //     'Java', 
+    //     'JavaScript', 
+    //     'TypeScript',
+    //     'C', 
+    //     'C++', 
+    //     'SQL',
+    //     'Spring-Boot', 
+    //     'JavaFX', 
+    //     'JCEF',
+    //     'JUnit',
+    //     'Maven', 
+    //     'VueJS', 
+    //     'DevExtreme', 
+    //     'Leaflet', 
+    //     'Self Contained Systems', 
+    //     'TTD', 
+    //     'DependencyTrack', 
+    //     'Docker', 
+    //     'TTD', 
+    //     'OracleDB', 
+    //     'MySQL', 
+    //     'MongoDB', 
+    //     'Firebase', 
+    //     'FireStore', 
+    //     'Keycloak', 
+    //     'Oauth2', 
+    //     'JWT', 
+    //     'OpenID',
+    //     'Flutter',
+    // ];
+    // const options = {radius: 400};
+
+    // TagCloud('.tag-cloud', texts, options);
 })
+
 
 </script>
 
-<style scoped>
+<style>
+/* .tagcloud {
+    height: 100% !important;
+    width: 100% !important;
+} */
 </style>
