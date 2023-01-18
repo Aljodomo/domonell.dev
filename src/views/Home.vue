@@ -10,19 +10,19 @@
                     <div class="fading-text">System.out.println("</div>
                     <div class="big-letters sm:ml-5">
                         <div class="mb-1 children_inline-block ani-hi">
-                            <span v-for="char in encode('Hey,')" v-html="char"></span>
+                            <span v-for="(char, index) in encode('Hey,')" v-html="char" :key="index"></span>
                         </div>
                         <div class="mb-1 children_inline-block">
                             <span class="children_inline-block ani-iam">
-                                <span v-for="char in encode('ich bin ')" v-html="char"></span>
+                                <span v-for="(char, index) in encode('ich bin ')" v-html="char" :key="index"></span>
                             </span>
                             <span class="text-p-hightlight children_inline-block ani-name">
-                                <span v-for="char in encode('Aljoscha')" v-html="char"></span>
+                                <span v-for="(char, index) in encode('Aljoscha')" v-html="char" :key="index"></span>
                             </span>
                             <span class="ani-comma">,</span>
                         </div>
                         <div class="children_inline-block ani-job-title">
-                            <span v-for="char in encode('Software Entwickler')" v-html="char"></span>
+                            <span v-for="(char, index) in encode('Software Entwickler')" v-html="char" :key="index"></span>
                         </div>
                     </div>
                     <div class="fading-text">");</div>

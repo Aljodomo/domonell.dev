@@ -10,7 +10,7 @@
                     <div class="fading-text">printf("</div>
                     <div class="res-mlr-5">
                         <div class="hightlighted-big-letters children_inline-block ani-ich">
-                            <span v-for="char in encode('Ich, ich, ich...')" v-html="char"></span>
+                            <span v-for="(char, index) in encode('Ich, ich, ich...')" v-html="char" :key="index"></span>
                         </div>
                     </div>
                     <div class="fading-text">");</div>
@@ -34,7 +34,7 @@
                         </p>
                         <br>
                         <router-link class="text-p-hightlight ani-flyin inline-block children_inline-block ani-contact-me" to="/contact">
-                            <span v-for="char in encode('Ich freue mich auf ihre Nachricht.')" v-html="char"></span>
+                            <span v-for="(char, index) in encode('Ich freue mich auf ihre Nachricht.')" v-html="char" :key="index"></span>
                         </router-link>
                     </div>
                     <div class="fading-text">");</div>

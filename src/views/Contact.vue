@@ -10,7 +10,7 @@
                 <div>
                     <div class="fading-text">fmt.Println("</div>
                     <div class="res-mlr-5 hightlighted-big-letters children_inline-block ani-contact">
-                            <span v-for="char in encode('Kontakt')" v-html="char"></span>
+                            <span v-for="(char, index) in encode('Kontakt')" v-html="char" :key="index"></span>
                         </div>
                     <div class="fading-text">")</div>
                 </div>
@@ -135,7 +135,7 @@ async function handleDirectMessage(e: MouseEvent) {
                     subject: formValue.value.subject,
                     message: formValue.value.message
                 }).then(() => {
-                    loading = false;
+                    loading.value = false;
                     notification["success"]({
                         title: "Nachricht abgeschickt",
                         duration: 2500,
