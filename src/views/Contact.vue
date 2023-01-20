@@ -53,7 +53,7 @@
                             <NFormItemGi class="ani-flyin" span="1"> 
                                 <NTooltip>
                                     <template #trigger>
-                                        <NButton class="w-full" size="large" @click="handleSendMail">
+                                        <NButton class="w-full" size="large" @click.prevent="handleSendMail">
                                             Email senden
                                         </NButton>
                                     </template>
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { FormInst, useNotification, NForm, NGrid, NFormItemGi, NTooltip, NButton, NInput } from 'naive-ui'
 import { encode } from "../utils/html-encoder";
 import { gsap } from "gsap";
@@ -161,10 +161,7 @@ async function handleDirectMessage(e: MouseEvent) {
 }
 
 function handleSendMail(e: MouseEvent) {
-
     clearTimeout(timeout);
-
-    e.preventDefault();
     formRef.value?.validate(
         (errors) => {
             const mailTo = `mailto:contact@domonell.dev?subject=${formValue.value.subject}&body=${formValue.value.message}`;
@@ -174,20 +171,13 @@ function handleSendMail(e: MouseEvent) {
         },
         (rule) => rule?.key === "subject" || rule?.key === "message"
     )
-
     timeout = setTimeout(() => formRef.value?.restoreValidation(), 5000);
 }
 
 onMounted(() => {
-    nextTick(() => {
-        gsap.timeline()
-            .from(".ani-contact > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.1, duration: 0.7, delay: 0.3 })
-            .from(".ani-flyin", { y: 100, opacity: 0, stagger: 0.2 }, "-=1.3")
-    });
+    gsap.timeline()
+        .from(".ani-contact > *", { scale: 0, opacity: 0, ease: "elastic.out(0.5, 0.2)", stagger: 0.1, duration: 0.7, delay: 0.3 })
+        .from(".ani-flyin", { y: 100, opacity: 0, stagger: 0.2 }, "-=1.3")
 })
 
 </script>
-
-<style scoped>
-
-</style>

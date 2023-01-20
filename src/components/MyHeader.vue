@@ -1,54 +1,36 @@
 <template>
-    <div class="bg-p-dark-black flex-row flex sm:flex-col h-full items-center justify-around sm:justify-center drop-shadow-2xl">
-        <div class="hidden sm:block basis-36 flex-shrink-0"></div>
-        <div class="hidden sm:block flex-1"></div>
-        <div class="basis-3/4 flex flex-row items-center justify-between text-p-gray sm:basis-0 sm:flex-col sm:gap-5 sm:m-10">
+    <div class="bg-p-dark-black flex-row flex sm:flex-col h-full items-center justify-evenly sm:justify-center drop-shadow-2xl">
+        <div class="flex-1 mt-12  hidden sm:block">
+            <LogoGithub class="text-p-gray hover:text-p-hightlight-blue hover:scale-125 transition hover:cursor-pointer w-8 h-8" @click="openInNewTab(githubUrl)" />
+        </div>
+        <div class="flex-1 flex flex-row items-center justify-center text-p-gray sm:basis-0 sm:flex-col sm:gap-5 sm:mx-12">
             <router-link v-for="route in routes" :key="route.key"
-                :class="{'text-p-hightlight': route.key === currentRoute.path}" class="nav-button" :to="(route.key! as string)">
+                :class="{'text-p-hightlight': route.key === currentRoute.path}" class="nav-button" :to="route.key">
                 {{route.label}}
             </router-link>
             <NDropdown trigger="click" size="large" :options="options" @select="handleSelect">
-                <NButton class="sm:hidden translate-y-[1px]" size="large" text>
-                    <template #icon>
-                        <NIcon>
-                            <menu-icon />
-                        </NIcon>
-                    </template>
-                </NButton>
+                <MenuSharp class="nav-button translate-y-[1px] sm:hidden" />
             </NDropdown>
         </div>
-        <div class="hidden flex-1 sm:flex flex-row sm:flex-col justify-end">
-            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(instaUrl)">
-                <template #icon>
-                    <NIcon>
-                        <InstagramIcon />
-                    </NIcon>
-                </template>
-            </NButton>
-            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(githubUrl)">
-                <template #icon>
-                    <NIcon>
-                        <GitHubIcon />
-                    </NIcon>
-                </template>
-            </NButton>
-            <NButton class="text-p-gray" size="large" quaternary circle @click="openInNewTab(linkedInUrl)">
-                <template #icon>
-                    <NIcon>
-                        <LinkedinIcon />
-                    </NIcon>
-                </template>
-            </NButton>
+        <div class="flex-1 hidden sm:flex justify-end flex-row sm:flex-col items-center gap-6 mb-12">  
+            <a :href="instaUrl" target="_blank">
+                <LogoInstagram class="social-button" />
+            </a>
+            <a :href="githubUrl" target="_blank">
+                <LogoGithub class="social-button" />
+            </a>
+            <a :href="linkedInUrl" target="_blank">
+                <LogoLinkedin class="social-button" />
+            </a>
         </div>
-        <div class="hidden sm:block basis-36 flex-shrink"></div>
     </div>
     <SourceCodeFooter />
 </template>
 
 <script setup lang="ts">
-import { LogoGithub as GitHubIcon, LogoInstagram as InstagramIcon, LogoLinkedin as LinkedinIcon, MenuSharp as MenuIcon } from '@vicons/ionicons5';
+import { LogoGithub, LogoInstagram, LogoLinkedin, MenuSharp } from '@vicons/ionicons5';
 import { useRoute, useRouter } from 'vue-router';
-import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption, NButton, NDropdown, NIcon } from 'naive-ui'
+import { DropdownOption, DropdownDividerOption, DropdownGroupOption, DropdownRenderOption, NDropdown, NIcon } from 'naive-ui'
 import SourceCodeFooter from './SourceCodeFooter.vue';
 
 const instaUrl = "https://www.instagram.com/25past4/";
@@ -57,17 +39,17 @@ const linkedInUrl = "https://www.linkedin.com/in/adomonell/";
 
 type DropdownMixedOption = DropdownOption | DropdownDividerOption | DropdownGroupOption | DropdownRenderOption;
 
-const routes: DropdownOption[] = [
-    {
-        label: "Home",
+const routes: {label: string, key: string}[] = [
+{
+        label: "Willkommen",
         key: "/"
     },
     {
-        label: "About",
+        label: "Über mich",
         key: "/about"
     },
     {
-        label: "Contact",
+        label: "Kontakt",
         key: "/contact"
     }
 ]
@@ -113,5 +95,9 @@ const currentRoute = useRoute();
 
 .nav-button {
     @apply text-base sm:hover:text-p-hightlight hover:cursor-pointer;
+}
+
+.social-button {
+    @apply text-p-gray hover:scale-110 transition hover:cursor-pointer hover:text-p-hightlight w-6 h-6
 }
 </style>
