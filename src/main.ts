@@ -1,11 +1,16 @@
-import {createApp} from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
 import './index.scss'
 
-import {router} from "./router/router";
-import RouterPrefetch from 'vue-router-prefetch'
+import { routes } from "./router/routes";
 
-createApp(App)
-    .use(router)
-    .use(RouterPrefetch)
-    .mount('#app');
+// `export const createApp` is required instead of the original `createApp(App).mount('#app')`
+export const createApp = ViteSSG(
+    // the root component
+    App,
+    // vue-router options
+    { routes },
+    // function to have custom setups
+    async ({ app, router, routes, isClient, initialState }) => {
+    },
+)

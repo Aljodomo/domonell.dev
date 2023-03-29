@@ -1,6 +1,6 @@
 <template>
     <div class="flex sm:flex-row flex-col items-stretch h-full bg-green-700">
-        <div class="basis-20 sm:basis-32 order-2 sm:order-1">
+        <div class="order-2 sm:order-1">
             <MyHeader></MyHeader>
         </div>
 
